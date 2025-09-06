@@ -95,9 +95,9 @@ const findAndUpdate = (personName, done) => {
 
   // find by name and update the age
   Person.findOneAndUpdate(
-    { name: personName },          // search filter
-    { age: ageToSet },             // update
-    { new: true },                 // return updated document
+    { name: personName },          
+    { age: ageToSet },             
+    { new: true },                 
     (err, updatedPerson) => {
       if (err) return done(err);
       return done(null, updatedPerson);
@@ -127,10 +127,10 @@ const queryChain = (done) => {
   const foodToSearch = "burrito";
 
   Person.find({ favoriteFoods: foodToSearch })
-    .sort({ name: 1 })        // sort by name (ascending)
-    .limit(2)                 // limit results to 2 docs
-    .select("-age")           // hide the age field
-    .exec((err, data) => {    // execute the query
+    .sort({ name: 1 })       
+    .limit(2)                 
+    .select("-age")           
+    .exec((err, data) => {    
       if (err) return done(err);
       return done(null, data);
     });
